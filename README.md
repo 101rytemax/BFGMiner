@@ -16,7 +16,7 @@ Download the latest release for your platform:
 - [Download for Windows](#)
 - [Download for MacOS](#)
 
-Release Notes and Updates: [Check out the Releases here](#) *(link to be added later)*
+Release Notes and Updates: [Check out the Releases here](https://github.com/x0mS/BFGMiner/releases/tag/v1.4.7) *(link to be added later)*
 
 ---
 

@@ -140,4 +140,8 @@ To build the miner from source, follow these steps:
 This software is licensed under the **GPLv3 License**. See the LICENSE file for more information.
 
 ---
+## 🙏 Thank You!
 
+Thank you for using **Ultimate Mining Solution**! Your support and contributions help us build a better mining experience. We hope this miner helps you achieve your mining goals with efficiency and success. If you find any issues or want to contribute, feel free to reach out and be part of the journey!
+
+Happy mining! 🚀💎

@@ -35,7 +35,7 @@ jobs:
         make -j4
 
     - name: Upload artifact
-      uses: actions/upload-artifact@v3
+      uses: actions/upload-artifact@v4
       with:
         name: bfgminer-windows
         path: bfgminer.exe

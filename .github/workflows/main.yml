@@ -1,0 +1,41 @@
+name: Build BFGMiner Windows
+
+on:
+  push:
+  pull_request:
+
+jobs:
+  build:
+    runs-on: windows-latest
+
+    steps:
+    - name: Checkout
+      uses: actions/checkout@v3
+
+    - name: Install MSYS2
+      uses: msys2/setup-msys2@v2
+      with:
+        msystem: MINGW64
+        update: true
+        install: >
+          base-devel
+          mingw-w64-x86_64-toolchain
+          mingw-w64-x86_64-libusb
+          git
+          autoconf
+          automake
+          libtool
+          pkg-config
+
+    - name: Build
+      shell: msys2 {0}
+      run: |
+        ./autogen.sh || autoreconf -fi
+        ./configure --with-libusb
+        make -j4
+
+    - name: Upload artifact
+      uses: actions/upload-artifact@v3
+      with:
+        name: bfgminer-windows
+        path: bfgminer.exe

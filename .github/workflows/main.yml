@@ -23,6 +23,7 @@ jobs:
           mingw-w64-x86_64-libusb
           mingw-w64-x86_64-jansson
           mingw-w64-x86_64-libevent
+          mingw-w64-x86_64-curl
           git
           autoconf
           automake

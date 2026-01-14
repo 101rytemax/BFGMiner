@@ -9,7 +9,7 @@ jobs:
     runs-on: windows-latest
 
     steps:
-    - name: Checkout
+    - name: Checkout source
       uses: actions/checkout@v3
 
     - name: Install MSYS2
@@ -26,15 +26,22 @@ jobs:
           automake
           libtool
           pkg-config
+          curl
 
-    - name: Build
+    - name: Install uthash (required for HASH_ITER)
+      shell: msys2 {0}
+      run: |
+        mkdir -p /mingw64/include
+        curl -L https://raw.githubusercontent.com/troydhanson/uthash/master/src/uthash.h -o /mingw64/include/uthash.h
+
+    - name: Build BFGMiner
       shell: msys2 {0}
       run: |
         ./autogen.sh || autoreconf -fi
         ./configure --with-libusb
         make -j4
 
-    - name: Upload artifact
+    - name: Upload Windows build
       uses: actions/upload-artifact@v4
       with:
         name: bfgminer-windows

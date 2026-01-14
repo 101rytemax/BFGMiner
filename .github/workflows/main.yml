@@ -28,11 +28,14 @@ jobs:
           pkg-config
           curl
 
-    - name: Install uthash (required for HASH_ITER)
+    - name: Install uthash (all required headers)
       shell: msys2 {0}
       run: |
         mkdir -p /mingw64/include
         curl -L https://raw.githubusercontent.com/troydhanson/uthash/master/src/uthash.h -o /mingw64/include/uthash.h
+        curl -L https://raw.githubusercontent.com/troydhanson/uthash/master/src/utlist.h -o /mingw64/include/utlist.h
+        curl -L https://raw.githubusercontent.com/troydhanson/uthash/master/src/utarray.h -o /mingw64/include/utarray.h
+        curl -L https://raw.githubusercontent.com/troydhanson/uthash/master/src/utstring.h -o /mingw64/include/utstring.h
 
     - name: Build BFGMiner
       shell: msys2 {0}
